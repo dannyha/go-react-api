@@ -95,8 +95,7 @@ func (s *Suite) TestQueryTransactions() {
 }
 
 func (s *Suite) TestValidateTransaction_ValidTransaction() {
-	_, offset := loadConfiguration()
-	var localDiffUTC time.Duration = offset //Based off Toronto time
+	var localDiffUTC time.Duration = envTimeOffset
 	now.WeekStartDay = time.Monday
 	currentDay := now.BeginningOfDay().UTC().Add(time.Hour * localDiffUTC)
 	currentWeek := now.BeginningOfWeek().UTC().Add(time.Hour * localDiffUTC)
@@ -146,8 +145,7 @@ func (s *Suite) TestValidateTransaction_ValidTransaction() {
 }
 
 func (s *Suite) TestValidateTransaction_FailedDailyMax() {
-	_, offset := loadConfiguration()
-	var localDiffUTC time.Duration = offset //Based off Toronto time
+	var localDiffUTC time.Duration = envTimeOffset
 	now.WeekStartDay = time.Monday
 	currentDay := now.BeginningOfDay().UTC().Add(time.Hour * localDiffUTC)
 	currentWeek := now.BeginningOfWeek().UTC().Add(time.Hour * localDiffUTC)
@@ -191,8 +189,7 @@ func (s *Suite) TestValidateTransaction_FailedDailyMax() {
 }
 
 func (s *Suite) TestValidateTransaction_FailedDailyAmount() {
-	_, offset := loadConfiguration()
-	var localDiffUTC time.Duration = offset //Based off Toronto time
+	var localDiffUTC time.Duration = envTimeOffset
 	now.WeekStartDay = time.Monday
 	currentDay := now.BeginningOfDay().UTC().Add(time.Hour * localDiffUTC)
 	currentWeek := now.BeginningOfWeek().UTC().Add(time.Hour * localDiffUTC)
@@ -236,8 +233,7 @@ func (s *Suite) TestValidateTransaction_FailedDailyAmount() {
 }
 
 func (s *Suite) TestValidateTransaction_FailedWeeklyAmount() {
-	_, offset := loadConfiguration()
-	var localDiffUTC time.Duration = offset //Based off Toronto time
+	var localDiffUTC time.Duration = envTimeOffset
 	now.WeekStartDay = time.Monday
 	currentDay := now.BeginningOfDay().UTC().Add(time.Hour * localDiffUTC)
 	currentWeek := now.BeginningOfWeek().UTC().Add(time.Hour * localDiffUTC)

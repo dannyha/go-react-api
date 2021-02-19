@@ -92,8 +92,7 @@ func (database *DB) createTransaction(record Transaction) bool {
 
 //Validates the transaction against the rules
 func (database *DB) validateTransaction(trans TransactionPost) bool {
-	_, offset := loadConfiguration()
-	var localDiffUTC time.Duration = offset //Based off Toronto time
+	var localDiffUTC time.Duration = envTimeOffset
 	var dailyMaxSum float64 = 5000.00
 	var dailyMaxCount int64 = 3
 	var weeklyMaxSum float64 = 20000.00

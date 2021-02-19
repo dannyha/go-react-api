@@ -128,7 +128,6 @@ function CreateTransation(): React.ReactElement {
       })
         .then((response) => response.json())
         .then((res) => {
-          // eslint-disable-next-line no-console
           if (res.accepted) {
             dispatch({ type: "setSubmitted", payload: true });
           } else {
@@ -177,7 +176,11 @@ function CreateTransation(): React.ReactElement {
 
                 {state.error && <h2>{state.error}</h2>}
 
-                <form noValidate autoComplete="off">
+                <form
+                  noValidate
+                  autoComplete="off"
+                  data-testid="transation-form"
+                >
                   <div className="css-1aoknzf">
                     <div className="css-79elbk">
                       <div className="MuiFormControl-root MuiTextField-root css-1qj5j9a MuiFormControl-fullWidth">
@@ -334,6 +337,7 @@ function CreateTransation(): React.ReactElement {
                       type="submit"
                       className="css-1j8penb"
                       onClick={(event) => processData(event)}
+                      data-testid="button-submit"
                     >
                       Process
                     </button>
@@ -363,7 +367,9 @@ function CreateTransation(): React.ReactElement {
                 </div>
               </>
             ) : (
-              <h1 className="css-1uzylmb">Your Transactions was processed!</h1>
+              <h1 data-testid="success-message" className="css-1uzylmb">
+                Your Transactions was processed!
+              </h1>
             )}
           </div>
         </div>

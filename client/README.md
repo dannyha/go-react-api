@@ -11,8 +11,9 @@ Node 			- hhttps://nodejs.org/en/download/
 
 # Project Structure
 
-/src/containers/CreateTransation.tsx 	- Form to input transation
-App.css 								- All styles taken direcly off KOHO https://www.koho.ca/
+/src/containers/CreateTransation.tsx 			- Form container implementation
+/src/containers/CreateTransation.text.tsx 		- Testing for form container
+App.css 										- All styles taken direcly off KOHO https://www.koho.ca/
 
 -------------------------------------------------------------------------------------------------------
 

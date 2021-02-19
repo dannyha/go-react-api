@@ -12,8 +12,7 @@ import (
 
 // Main function
 func main() {
-	dbCreds, _ := loadConfiguration()
-	db, dberr := gorm.Open(postgres.Open(dbCreds), &gorm.Config{})
+	db, dberr := gorm.Open(postgres.Open(envDbCredentials), &gorm.Config{})
 	database := &DB{db: db}
 
 	if dberr != nil {
@@ -33,5 +32,5 @@ func main() {
 	database.readInput()
 
 	// Start server
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServe(envLocalhostPort, r))
 }

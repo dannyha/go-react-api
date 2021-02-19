@@ -24,7 +24,7 @@ go get -u github.com/stretchr/testify/suite
 
 # Project Structure
 
-confiurations.go 	- Config for PostgreSQL credentials and TimeOffset of local to UTC time
+confiurations.go 	- Server configuration values
 models.go 			- Models
 methods.go 			- Methods
 methods_test.go 	- Testing of Methods
@@ -36,7 +36,10 @@ output.txt 			- Output file
 
 # Usage
 
-1. Configure values for "dbCredentials" and "timeOffset" in configurations.go
+1. Configure server settings configurations.go
+	- envDbCredentials	: database credentials
+	- envTimeOffset		: local time to UTC offset (defaults to -5 Toronto time)
+	- envLocalhostPort	: localhost port (defaults to :8000)
 2. run command: go build
 3. Modify inputs.txt
 4. run executable: server.exe
